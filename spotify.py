@@ -35,8 +35,11 @@ class Spotipy:
 
 
 music = Spotipy()
-playlist_id = music.create_playlist(input("Playlist Name : "))
+playlist_id = music.create_playlist("Top 100")
+track_number = 0
 for track in all_songs:
     song_uri = music.search_song(track)
+    track_number += 1
     if song_uri:
         music.add_song(playlist_id, [song_uri])
+        print(f"Added {track_number}. {track}")
