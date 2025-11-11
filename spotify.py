@@ -36,5 +36,7 @@ class Spotipy:
 
 music = Spotipy()
 playlist_id = music.create_playlist(input("Playlist Name : "))
-song_uri = music.search_song(input("Song Name: "))
-music.add_song(playlist_id, [song_uri])
+for track in all_songs:
+    song_uri = music.search_song(track)
+    if song_uri:
+        music.add_song(playlist_id, [song_uri])
