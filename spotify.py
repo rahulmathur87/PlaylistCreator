@@ -2,6 +2,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import os
 from main import all_songs
+from test import song_list
 
 # Environment Variables activated for login
 client_id = os.getenv("CLIENT_ID")
@@ -35,9 +36,9 @@ class Spotipy:
 
 
 music = Spotipy()
-playlist_id = music.create_playlist("Top 100")
+playlist_id = music.create_playlist("HindiTop50")
 track_number = 0
-for track in all_songs:
+for track in song_list:
     song_uri = music.search_song(track)
     track_number += 1
     if song_uri:
